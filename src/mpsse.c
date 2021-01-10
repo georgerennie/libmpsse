@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-#if defined(_MSC_VER)
+#ifdef _MSC_VER
 	#include <Windows.h>
 #else
 	#include <unistd.h>
