@@ -173,9 +173,9 @@ int FastTransfer(struct mpsse_context *mpsse, char *wdata, char *rdata, int size
 			{
 				rxsize = size - n;
 				/* When sending and recieving, FTDI chips don't seem to like large data blocks. Limit the size of each block to SPI_TRANSFER_SIZE */
-				if(rxsize > SPI_TRANSFER_SIZE)
+				if(rxsize > mpsse->spi_transfer_size)
 				{
-					rxsize = SPI_TRANSFER_SIZE;
+					rxsize = mpsse->spi_transfer_size;
 				}
 
 				if(fast_build_block_buffer(mpsse, mpsse->txrx, (unsigned char *) (wdata + n), rxsize, &data_size) == MPSSE_OK)

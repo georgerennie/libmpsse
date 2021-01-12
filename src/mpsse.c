@@ -958,9 +958,9 @@ char *Transfer(struct mpsse_context *mpsse, char *data, int size)
 				{
 					/* When sending and recieving, FTDI chips don't seem to like large data blocks. Limit the size of each block to SPI_TRANSFER_SIZE */
 					rxsize = size - n;
-					if(rxsize > SPI_TRANSFER_SIZE)
+					if(rxsize > mpsse->spi_transfer_size)
 					{
-						rxsize = SPI_TRANSFER_SIZE;
+						rxsize = mpsse->spi_transfer_size;
 					}
 
 					txdata = build_block_buffer(mpsse, mpsse->txrx, (unsigned char *) (data + n), rxsize, &data_size);
