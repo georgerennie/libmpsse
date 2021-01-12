@@ -144,6 +144,7 @@ struct mpsse_context *OpenIndex(int vid, int pid, enum modes mode, int freq, int
 				mpsse->pid = pid;
 				mpsse->status = STOPPED;
 				mpsse->endianess = endianess;
+				mpsse->spi_transfer_size = 512;
 
 				/* Set the appropriate transfer size for the requested protocol */
 				if(mpsse->mode == I2C)
